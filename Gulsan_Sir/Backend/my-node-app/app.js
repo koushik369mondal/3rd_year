@@ -28,3 +28,12 @@ app.get('/product/:category/:id', (req, res) => {
         res.send(`Category: ${category}, Product ID: ${id}`);
     }
 });
+
+app.get('/product/:category/:id', (req, res) => {
+    const { category, id } = req.params;
+    if (!id) {
+        res.status(400).send('Product ID is missing!');
+    } else {
+        res.send(`Category: ${category}, Product ID: ${id}`);
+    }
+});
