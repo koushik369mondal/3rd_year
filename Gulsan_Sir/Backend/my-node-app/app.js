@@ -8,14 +8,14 @@ app.set('view engine', 'ejs');
 // Serve static files from the 'public' directory
 app.use(express.static('public'));
 
-// Define a route for the home page
 app.get('/', (req, res) => {
-    const title = "Welcome to EJS Templating";
-    const message = "This is your first EJS application!";
-    const items = ['Item 1', 'Item 2', 'Item 3'];
-
-    // Render 'index.ejs' and pass data to the template
-    res.render('index', { title: title, message: message, items: items });
+    res.send('Home Page');
+});
+app.get('/about', (req, res) => {
+    res.send('About Page');
+});
+app.get('/contact', (req, res) => {
+    res.send('Contact Page');
 });
 
 // Start the server
