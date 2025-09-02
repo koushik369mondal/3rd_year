@@ -18,6 +18,10 @@ app.get('/contact', (req, res) => {
     res.send('Contact Page');
 });
 
+app.get('/users/:id', (req, res) => {
+    res.send(`User ID: ${req.params.id}`);
+});
+
 // Start the server
 app.listen(port, () => {
     console.log(`App listening at http://localhost:${port}`);
