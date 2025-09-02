@@ -19,3 +19,12 @@ app.get('/product/:category/:id', (req, res) => {
     const { category, id } = req.params;
     res.send(`Category: ${category}, Product ID: ${id}`);
 });
+
+app.get('/product/:category/:id', (req, res) => {
+    const { category, id } = req.params;
+    if (category === 'electronics') {
+        res.send(`Electronics Product with ID: ${id}`);
+    } else {
+        res.send(`Category: ${category}, Product ID: ${id}`);
+    }
+});
