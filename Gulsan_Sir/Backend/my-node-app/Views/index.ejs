@@ -3,15 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title><%= title %></title>
 </head>
 <body>
-    <h1>Welcome to <%= siteTitle %></h1>
-    <p>Hello, <%= user %>! Welcome to our site.</p>
+    <h1><%= title %></h1>
+    <p><%= message %></p>
     <ul>
-        <% items.forEach(function(item) { %>
+        <% items.forEach(item => { %>
             <li><%= item %></li>
-        <% }); %>
+        <% }) %>
     </ul>
+    <% if (items.length > 0) { %>
+        <p>You have <%= items.length %> items in your list.</p>
+    <% } else { %>
+        <p>No items in your list.</p>
+    <% } %>
 </body>
 </html>
