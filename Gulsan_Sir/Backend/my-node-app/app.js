@@ -1,11 +1,18 @@
-const http = require("http");
-const hostname = "127.0.0.1";
-const port = 3000;
-const server = http.createServer((req, res) => {
-    res.statusCode = 200;
-    res.setHeader("Content-Type", "text/plain");
-    res.end("Hello World\n");
+const express = require('express');
+const app = express();
+
+// Start the server
+const PORT = 3000;
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
 });
-server.listen(port, hostname, () => {
-    console.log(`Server running at http://${hostname}:${port}/`);
+
+// Set the template engine to EJS
+app.set('view engine', 'ejs');
+
+// Serve static files (optional)
+app.use(express.static('public'));
+
+app.get('/', (req, res) => {
+    res.render('index', { siteTitle: 'My EJS Site', user: 'Kaushik Mandal' });
 });
