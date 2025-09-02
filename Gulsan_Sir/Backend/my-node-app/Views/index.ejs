@@ -8,5 +8,10 @@
 <body>
     <h1>Welcome to <%= siteTitle %></h1>
     <p>Hello, <%= user %>! Welcome to our site.</p>
+    <ul>
+        <% items.forEach(function(item) { %>
+            <li><%= item %></li>
+        <% }); %>
+    </ul>
 </body>
 </html>
