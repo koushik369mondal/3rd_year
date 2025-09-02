@@ -22,6 +22,11 @@ app.get('/users/:id', (req, res) => {
     res.send(`User ID: ${req.params.id}`);
 });
 
+// Remove the app.get('*', ...) line and replace with:
+app.use((req, res) => {
+    res.status(404).send('404 Page Not Found');
+});
+
 // Start the server
 app.listen(port, () => {
     console.log(`App listening at http://localhost:${port}`);
