@@ -1,39 +1,23 @@
 const express = require('express');
 const app = express();
-const PORT = 3000;
+const path = require('path');
 
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-});
+// Set EJS as the template engine
+app.set('view engine', 'ejs');
 
+// Serve static files from the public directory
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Routes
 app.get('/', (req, res) => {
-    res.send('Welcome to the Home Page');
+    res.render('index', { title: 'Home Page' });
+});
+app.get('/about', (req, res) => {
+    res.render('about', { title: 'About Page' });
 });
 
-app.get('/product/:id', (req, res) => {
-    const productId = req.params.id;
-    res.send(`Product ID: ${productId}`);
-});
-
-app.get('/product/:category/:id', (req, res) => {
-    const { category, id } = req.params;
-    res.send(`Category: ${category}, Product ID: ${id}`);
-});
-
-app.get('/product/:category/:id', (req, res) => {
-    const { category, id } = req.params;
-    if (category === 'electronics') {
-        res.send(`Electronics Product with ID: ${id}`);
-    } else {
-        res.send(`Category: ${category}, Product ID: ${id}`);
-    }
-});
-
-app.get('/product/:category/:id', (req, res) => {
-    const { category, id } = req.params;
-    if (!id) {
-        res.status(400).send('Product ID is missing!');
-    } else {
-        res.send(`Category: ${category}, Product ID: ${id}`);
-    }
+// Start the server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });
