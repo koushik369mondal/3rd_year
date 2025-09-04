@@ -4,7 +4,7 @@ app.set('view engine', 'ejs');
 
 // Route for rendering the EJS file
 app.get('/', (req, res) => {
-    const user = { name: 'Alice', role: 'admin', loggedIn: true };
+    const user = { name: 'Alice', role: 'user', loggedIn: false };
     res.render('index', { user });
 });
 
