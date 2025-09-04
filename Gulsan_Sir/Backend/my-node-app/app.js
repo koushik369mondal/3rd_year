@@ -1,13 +1,28 @@
 const express = require('express');
 const app = express();
-app.set('view engine', 'ejs');
+const port = 3000;
 
-// Route for rendering the EJS file
+// Middleware to parse incoming request bodies (for form data)
+app.use(express.urlencoded({ extended: true }));
+
+// Route to serve HTML form
 app.get('/', (req, res) => {
-    const user = { name: 'Alice', role: 'user', loggedIn: false };
-    res.render('index', { user });
+    res.send(`
+        <form action="/submit" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <button type="submit">Submit</button>
+        </form>
+    `);
 });
 
-app.listen(3000, () => {
-    console.log('Server is running on port 3000');
+// Route to handle POST request
+app.post('/submit', (req, res) => {
+    const name = req.body.name;
+    res.send(`Hello, ${name}! Your form was submitted successfully.`);
+});
+
+// Start the server
+app.listen(port, () => {
+    console.log(`Server is running on http://localhost:${port}`);
 });
