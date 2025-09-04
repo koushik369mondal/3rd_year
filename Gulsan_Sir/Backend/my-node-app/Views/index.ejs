@@ -1,17 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fruits List</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <title>EJS Conditional Statements</title>
 </head>
 <body>
-    <h1>Fruits List</h1>
-    <ul>
-        <% fruits.forEach(function(fruit) { %>
-            <li><%= fruit %></li>
-        <% }); %>
-    </ul>
+    <h1>Welcome, <%= user.name %>!</h1>
+    <% if (user.loggedIn) { %>
+        <p>You are logged in.</p>
+    <% } else { %>
+        <p>Please log in to continue.</p>
+    <% } %>
+    <% if (user.role === 'admin') { %>
+        <p>You have admin privileges.</p>
+    <% } else { %>
+        <p>You are a regular user.</p>
+    <% } %>
 </body>
 </html>
