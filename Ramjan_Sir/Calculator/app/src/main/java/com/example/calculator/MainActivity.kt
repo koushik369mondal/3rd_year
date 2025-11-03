@@ -1,22 +1,20 @@
 package com.example.calculator
 
-import android.opengl.ETC1
-import android.opengl.GLES30
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
-class MainActivity : AppCompatActivity(), {
-    lateinit var e1 : EditText
-    lateinit var e2 : EditText
-    lateinit var b1 : Button
-    lateinit var b2 : Button
-    lateinit var b3 : Button
-    lateinit var b4 : Button
+class MainActivity : AppCompatActivity(), View.OnClickListener {
+    lateinit var e1: EditText
+    lateinit var e2: EditText
+    lateinit var b1: Button
+    lateinit var b2: Button
+    lateinit var b3: Button
+    lateinit var b4: Button
+    lateinit var bs: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,11 +26,16 @@ class MainActivity : AppCompatActivity(), {
         b2 = findViewById(R.id.btn2)
         b3 = findViewById(R.id.btn3)
         b4 = findViewById(R.id.btn4)
+        bs = findViewById(R.id.btnSubmit)
 
         b1.setOnClickListener(this)
         b2.setOnClickListener(this)
         b3.setOnClickListener(this)
         b4.setOnClickListener(this)
+        bs.setOnClickListener(this)
+    }
 
+    override fun onClick(v: View?) {
+        // handle button clicks
     }
 }
