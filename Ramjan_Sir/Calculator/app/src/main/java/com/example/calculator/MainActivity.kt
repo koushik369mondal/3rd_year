@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 
@@ -14,7 +15,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     lateinit var b2: Button
     lateinit var b3: Button
     lateinit var b4: Button
-    lateinit var bs: Button
+    lateinit var bs: TextView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,5 +39,16 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         // handle button clicks
+        var a = e1.text.toString().toDouble()
+        var b = e2.text.toString().toDouble()
+        var result: Double = 0.0
+        when(v?.id) {
+            R.id.btn1 -> result = a / b
+            R.id.btn2 -> result = a + b
+            R.id.btn3 -> result = a - b
+            R.id.btn4 -> result = a * b
+        }
+        bs.text = "Result is : $result"
+
     }
 }

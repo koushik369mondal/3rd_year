@@ -64,7 +64,7 @@
     </LinearLayout>
 
     <!-- Submit Button Added Below -->
-    <Button
+    <TextView
         android:id="@+id/btnSubmit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
