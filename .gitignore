@@ -77,3 +77,26 @@ Thumbs.db
 # Temporary files
 tmp/
 temp/
+
+# Android Studio - Project folders
+Android/
+Android/**
+**/Android/caches/
+
+# Android Studio - Cache folders
+**/caches/
+
+# Android Studio - Build outputs
+**/build/
+
+# Android Studio - Gradle cache
+**/.gradle/
+
+# Android Studio - NDK/C++ build
+**/.cxx/
+
+# Binary artifacts
+*.jar
+*.class
+*.bin
+*.lock
